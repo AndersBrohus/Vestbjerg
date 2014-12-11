@@ -1,4 +1,6 @@
 package ctr;
+import java.util.ArrayList;
+
 import mdl.*;
 
 public class ProductCtrl {
@@ -14,9 +16,9 @@ public class ProductCtrl {
 		pCon.createProduct(pro);
 	}
 	
-	public Product findProduct(String name)
+	public ArrayList<Product> findProduct(String name)
 	{
-		Product pro = pCon.findProduct(name);
+		ArrayList<Product> pro = pCon.findProduct(name);
 		return pro;
 	}
 	

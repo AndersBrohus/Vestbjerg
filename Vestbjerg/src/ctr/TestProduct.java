@@ -1,9 +1,7 @@
 package ctr;
 
 import mdl.*;
-
 import static org.junit.Assert.*;
-import mdl.Customer;
 
 import org.junit.Test;
 
@@ -13,12 +11,14 @@ public class TestProduct {
 	public void test() {
 		ProductCtrl pCtr = new ProductCtrl();
 		
-		pCtr.createProduct("Test", "Bla", 20);
-		pCtr.createProduct("Test2", "Bla2", 200);
-		pCtr.createProduct("Test3", "Bla3", 2000);
+		pCtr.createProduct("Test", "Værktøj", 20);
+		pCtr.createProduct("Test2", "Belysning", 200);
+		pCtr.createProduct("Test3", "Køkken", 2000);
+		pCtr.createProduct("Bla", "Træ", 2000);
 
 
-		Product pro = pCtr.getProduct(1);
+
+		/*Product pro = pCtr.getProduct(1);
 		
 		System.out.println("The Customers name is " + pro.getName());
 		System.out.println("The Customers price is " + pro.getPrice());
@@ -37,6 +37,9 @@ public class TestProduct {
 		pCtr.printProductList();
 		pCtr.deleteProduct(1);
 		System.out.println("\n");
-		pCtr.printProductList();
+		pCtr.printProductList();*/
+		
+		pCtr.findProduct("Bl");
+	
 	}
 }

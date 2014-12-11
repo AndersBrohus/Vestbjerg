@@ -24,24 +24,23 @@ public class ProductContainer {
 		productList.add(pro);
 	}
 	
-	public Product findProduct(String name)
+	public ArrayList<Product> findProduct(String name)
 	{
-		int i=0;
-        boolean found = false;
-        Product pro = null;
-        while(i<productList.size() && !found){
-        	Product prod = productList.get(i);
-            String prodName = prod.getName();
-            if (prodName.equals(name)){
-                found = true;
-                pro = productList.get(i);
-                
-            }
-            else{
-                i++;
-            }
-        }
-        return pro;
+		ArrayList<Product> pList = new ArrayList<Product>();
+		 for (Product p : productList) 
+		 {
+			if(p.getName().contains(name))
+			{
+				pList.add(p);
+			}
+		 }
+
+		 System.out.println("Product Number - Product Name - Type - Price \n");
+		 for(Product p : pList)
+		 {
+			 System.out.println(p.getProductNumber() + " - " + p.getName() + " - " + p.getType() + " - " + p.getPrice() + "kr");
+		 }
+		 return pList;
 	}
 	
 	public Product getProduct(int productNumber)
