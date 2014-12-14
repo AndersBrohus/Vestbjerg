@@ -1,0 +1,69 @@
+package mdl;
+
+import java.util.ArrayList;
+
+public class OrderContainer {
+	private static OrderContainer instance;
+	private ArrayList<Order> orderList;
+	
+	private OrderContainer() {
+		orderList = new ArrayList<Order>();
+	}
+	
+	public static OrderContainer getInstance()
+	{
+		if(instance == null){
+			instance = new OrderContainer();
+		}
+		return instance;
+	}
+	
+	public void createOrder(Order ord)
+	{
+		orderList.add(ord);
+	}
+	
+	public Order getOrder(int orderNumber)
+	{
+		int i=0;
+        boolean found = false;
+        Order ord = null;
+        while(i<orderList.size() && !found){
+        	Order order = orderList.get(i);
+            int number = order.getOrderNumber();
+            if (number == orderNumber){
+                found = true;
+                ord = orderList.get(i);
+                
+            }
+            else{
+                i++;
+            }
+        }
+        return ord;
+	}
+	
+	public Order getOrder(int orderNumber)
+	{
+		int i=0;
+        boolean found = false;
+        Order ord = null;
+        while(i<orderList.size() && !found){
+        	Order order = orderList.get(i);
+            int number = order.getOrderNumber();
+            if (number == orderNumber){
+                found = true;
+                ord = orderList.get(i);
+                
+            }
+            else{
+                i++;
+            }
+        }
+        return ord;
+	}
+	
+	public void addCustomer(Customer cus) {
+		
+	}
+}

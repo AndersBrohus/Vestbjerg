@@ -23,43 +23,49 @@ public class OrderContainer {
 		orderList.add(ord);
 	}
 	
-	public Order findOrder(String phone)
+	public Order getOrder(int orderNumber)
 	{
 		int i=0;
         boolean found = false;
-        Customer cus = null;
-        while(i<customerList.size() && !found){
-        	Customer cust = customerList.get(i);
-            String number = cust.getPhone();
-            if (number.equals(phone)){
+        Order ord = null;
+        while(i<orderList.size() && !found){
+        	Order order = orderList.get(i);
+            int number = order.getOrderNumber();
+            if (number == orderNumber){
                 found = true;
-                cus = customerList.get(i);
+                ord = orderList.get(i);
                 
             }
             else{
                 i++;
             }
         }
-        return cus;
+        return ord;
 	}
 	
-	public Customer getCustomer(int customerNumber)
+	public ArrayList<Order> findOrderList(int customerNumber)
 	{
-		int i=0;
-        boolean found = false;
-        Customer cus = null;
-        while(i<customerList.size() && !found){
-        	Customer cust = customerList.get(i);
-            int number = cust.getCustomerNumber();
-            if (number == customerNumber){
-                found = true;
-                cus = customerList.get(i);
-                
-            }
-            else{
-                i++;
-            }
-        }
-        return cus;
+		ArrayList<Order> oList = new ArrayList<Order>();
+		 for (Order o : orderList) 
+		 {
+			if(o.getCustomer().getCustomerNumber() == customerNumber)
+			{
+				oList.add(o);
+			}
+		 }
+
+		 System.out.println("Order Number - Price \n");
+		 for(Order o : oList)
+		 {
+			 System.out.println(o.getOrderNumber() + " - " + o.getTotalPrice() + "kr");
+			 System.out.println("Order list \n");
+			 System.out.println("Product - Amout \n");
+			 o.listPartOrder();
+		 }
+		 return oList;
+	}
+	
+	public void addCustomer(Customer cus) {
+		
 	}
 }

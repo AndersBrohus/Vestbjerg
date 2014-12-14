@@ -1,0 +1,28 @@
+package ctr;
+import mdl.*;
+
+public class OrderCtrl {
+	private OrderContainer oCon;
+	
+	public OrderCtrl()
+	{
+		oCon = OrderContainer.getInstance();
+	}
+	
+	public void createOrder(String customerPhone)
+	{
+		
+	}
+	
+	public Customer findCustomer(String phone)
+	{
+		Customer cus = cCon.findCustomer(phone);
+		return cus;
+	}
+	
+	public Customer getCustomer(int customerNumber)
+	{
+		Customer cus = cCon.getCustomer(customerNumber);
+		return cus;
+	}
+}

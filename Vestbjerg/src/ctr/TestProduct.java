@@ -11,10 +11,10 @@ public class TestProduct {
 	public void test() {
 		ProductCtrl pCtr = new ProductCtrl();
 		
-		pCtr.createProduct("Test", "VÃ¦rktÃ¸j", 20);
+		pCtr.createProduct("Test", "Værktøj", 20);
 		pCtr.createProduct("Test2", "Belysning", 200);
-		pCtr.createProduct("Test3", "KÃ¸kken", 2000);
-		pCtr.createProduct("Bla", "TrÃ¦", 2000);
+		pCtr.createProduct("Test3", "Køkken", 2000);
+		pCtr.createProduct("Bla", "Træ", 2000);
 
 
 

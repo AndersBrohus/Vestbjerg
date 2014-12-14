@@ -1,0 +1,30 @@
+package ctr;
+
+import mdl.*;
+
+import org.junit.Test;
+
+public class TestOrder {
+
+	@Test
+	public void test() {
+		ProductCtrl pCtr = new ProductCtrl();
+		OrderCtrl oCtr = new OrderCtrl();
+		CustomerCtrl cCtr = new CustomerCtrl();
+		
+		Product p1 = new Product("Test", "Værktøj", 100);
+		Product p2 = new Product("Test2", "Belysning", 200);
+		Product p3 = new Product("Test3", "Køkken", 2000);
+		Product p4 = new Product("Bla", "Træ", 2000);
+		
+		Customer c1 = new Customer("Hans", "test", "1", "test");
+		cCtr.createCustomer("Jens", "test", "2", "test");
+		
+		PartOrder pOrder1 = new PartOrder(4,p1);
+		PartOrder pOrder2 = new PartOrder(1,p2);
+		
+		Order o = new Order(c1);
+		o.addPartOrder(pOrder1);
+	}
+
+}

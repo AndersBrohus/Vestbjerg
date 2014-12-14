@@ -3,18 +3,18 @@ package mdl;
 import java.util.ArrayList;
 
 public class Order {
+	private static int counter = 1;
 	private int orderNumber;
 	private double totalPrice;
 	private Customer customer;
 	private ArrayList<PartOrder> partOrderList;
-	private PartOrder partOrder;
 	
-	public Order(int orderNumber, double totalPrice, Customer customer,
-			ArrayList<PartOrder> partOrderList) {
-		this.orderNumber = orderNumber;
-		this.totalPrice = totalPrice;
+	public Order(Customer customer) 
+	{
+		this.orderNumber = counter++;
+		totalPrice = 0;
 		this.customer = customer;
-		this.partOrderList = partOrderList;
+		partOrderList = new ArrayList<PartOrder>();
 	}
 
 	public int getOrderNumber() {
@@ -41,7 +41,16 @@ public class Order {
 		this.customer = Customer;
 	}
 	
-	public void addPartOrder() {
-		partOrderList.add(partOrder);
+	public void addPartOrder(PartOrder pOrder) {;
+		partOrderList.add(pOrder);
+		totalPrice += pOrder.getProduct().getPrice();
+	}
+	
+	public void listPartOrder()
+	{
+		for(PartOrder pOrder : partOrderList)
+		{
+			System.out.println(pOrder.getProduct().getName() + " - " + pOrder.getAmount());
+		}
 	}
 }
