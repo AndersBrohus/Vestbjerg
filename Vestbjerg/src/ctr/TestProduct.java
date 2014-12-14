@@ -39,7 +39,7 @@ public class TestProduct {
 		System.out.println("\n");
 		pCtr.printProductList();*/
 		
-		pCtr.findProduct("Bl");
+		pCtr.findProduct("Te");
 	
 	}
 }

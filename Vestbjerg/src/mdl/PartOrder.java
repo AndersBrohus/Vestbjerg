@@ -24,5 +24,4 @@ public class PartOrder {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
 }

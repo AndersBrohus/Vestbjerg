@@ -7,6 +7,7 @@ public class Order {
 	private double totalPrice;
 	private Customer customer;
 	private ArrayList<PartOrder> partOrderList;
+	private PartOrder partOrder;
 	
 	public Order(int orderNumber, double totalPrice, Customer customer,
 			ArrayList<PartOrder> partOrderList) {
@@ -38,5 +39,9 @@ public class Order {
 
 	public void setCustomer(Customer Customer) {
 		this.customer = Customer;
+	}
+	
+	public void addPartOrder() {
+		partOrderList.add(partOrder);
 	}
 }
