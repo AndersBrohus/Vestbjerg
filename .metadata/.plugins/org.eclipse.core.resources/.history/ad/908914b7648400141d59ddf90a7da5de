@@ -1,0 +1,7 @@
+package ui;
+import ctr.*;
+import mdl.*;
+
+public class CustomerUI {
+	private CustomerCtrl cCtr;
+}

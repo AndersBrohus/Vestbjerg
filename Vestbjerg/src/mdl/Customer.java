@@ -73,7 +73,7 @@ public class Customer {
 	}
 
 	public void setAmountSpend(double amountSpend) {
-		this.amountSpend = amountSpend;
+		this.amountSpend += amountSpend;
 	}
 	
 	/*public void printCustomerInfo()

@@ -1,0 +1,61 @@
+package ui;
+import java.util.Scanner;
+
+import ctr.*;
+import mdl.*;
+
+public class CustomerUI {
+	private CustomerCtrl cCtr;
+	
+	public CustomerUI() {
+		cCtr = new CustomerCtrl();
+	}
+	
+	public void start()
+	{
+		customerMenu();
+	}
+	
+	public void personMenu() {
+        boolean exit = false;
+        while(!exit) { //that is: while exit is false
+
+            int choise = writePersonMenu(); 
+            if(choise == 1) {
+
+            }
+            else if(choise == 2) {
+
+            }
+            else if(choise == 3) {
+
+            } 
+            else if (choise ==4) {
+
+            }
+            else
+            {exit = true;}
+        }//end else    
+    }//end while
+
+    public int writePersonMenu() { // makes an object keyboard to read input from the screen
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Customer Menu ***");
+        System.out.println(" (1) Create Person");
+        System.out.println(" (2) Find Person");
+        System.out.println(" (3) Remove Person");
+        System.out.println(" (4) Change Person info");
+        System.out.println(" (5) Close");
+        System.out.print("\n Make your choice: ");
+
+        int choise = keyboard.nextInt();
+        if(choise > 5 || choise == 0)
+        {
+            System.out.println("WTF.. You choose " + choise +" this is not a valid number.......");
+            return writePersonMenu();
+        }
+        else {
+            return choise;
+        }
+    }
+}

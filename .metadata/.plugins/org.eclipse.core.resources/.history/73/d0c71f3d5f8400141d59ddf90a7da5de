@@ -1,0 +1,37 @@
+package ctr;
+
+import java.util.ArrayList;
+
+import mdl.*;
+
+public class OrderCtrl {
+	private OrderContainer oCon;
+	
+	public OrderCtrl()
+	{
+		oCon = OrderContainer.getInstance();
+	}
+	
+	public void createOrder(Customer cus)
+	{	
+		Order ord = new Order(cus);
+		oCon.createOrder(ord);
+	}
+	
+	public Order getOrder(int orderNumber)
+	{
+		Order ord = oCon.getOrder(orderNumber);
+		return ord;
+	}
+	
+	public String findOrderList(Customer cus)
+	{
+		return oCon.findOrderList(cus);
+	}
+	
+	public void addPartOrder(int orderNumber, int amount, Product product)
+	{
+		Order ord = getOrder(orderNumber);
+		ord.addPartOrder(amount, product);
+	}
+}

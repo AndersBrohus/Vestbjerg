@@ -1,0 +1,40 @@
+package ctr;
+
+import mdl.*;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class TestOrder {
+
+	@Test
+	public void test() {
+		ProductCtrl pCtr = new ProductCtrl();
+		OrderCtrl oCtr = new OrderCtrl();
+		CustomerCtrl cCtr = new CustomerCtrl();
+		
+		pCtr.createProduct("Test", "Værktøj", 1);
+		pCtr.createProduct("Test2", "Belysning", 200);
+		pCtr.createProduct("Test3", "Køkken", 2);
+		pCtr.createProduct("Bla", "Træ", 2000);
+		
+		cCtr.createCustomer("Hans", "test", "1", "test");
+		cCtr.createCustomer("Jens", "test", "2", "test");
+		
+		PartOrder pOrder1 = new PartOrder(1, pCtr.getProduct(1));
+		PartOrder pOrder2 = new PartOrder(1, pCtr.getProduct(3));
+		
+		
+		Customer cus1 = cCtr.getCustomer(1);
+		oCtr.createOrder(cus1);
+		
+		oCtr.getOrder(1).addPartOrder(pOrder1);
+		oCtr.getOrder(1).addPartOrder(pOrder2);
+		
+		System.out.println(oCtr.getOrder(1).getTotalPrice());
+		
+		
+	}
+
+}

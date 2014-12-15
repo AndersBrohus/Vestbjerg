@@ -1,5 +1,7 @@
 package ctr;
 
+import java.util.ArrayList;
+
 import mdl.*;
 
 public class OrderCtrl {
@@ -11,7 +13,7 @@ public class OrderCtrl {
 	}
 	
 	public void createOrder(Customer cus)
-	{	
+	{
 		Order ord = new Order(cus);
 		oCon.createOrder(ord);
 	}
@@ -22,8 +24,20 @@ public class OrderCtrl {
 		return ord;
 	}
 	
-	public void findOrderList(int customerNumber)
+	public String findOrderList(Customer cus)
 	{
-		oCon.findOrderList(customerNumber); 
+		return oCon.findOrderList(cus);
+	}
+	
+	public void addPartOrder(int orderNumber, int amount, Product product)
+	{
+		Order ord = getOrder(orderNumber);
+		ord.addPartOrder(amount, product);
+	}
+	
+	public void isFinished(int orderNumber)
+	{
+		Order ord = getOrder(orderNumber);
+		ord.isFinished();
 	}
 }

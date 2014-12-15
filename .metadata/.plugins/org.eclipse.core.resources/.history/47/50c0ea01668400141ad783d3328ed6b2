@@ -1,0 +1,16 @@
+package ui;
+import ctr.*;
+import mdl.*;
+
+public class CustomerUI {
+	private CustomerCtrl cCtr;
+	
+	public CustomerUI() {
+		cCtr = new CustomerCtrl();
+	}
+	
+	public void start()
+	{
+		CustomerMenu();
+	}
+}

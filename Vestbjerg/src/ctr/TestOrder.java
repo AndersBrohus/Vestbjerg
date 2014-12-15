@@ -1,7 +1,6 @@
 package ctr;
 
 import mdl.*;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -14,27 +13,29 @@ public class TestOrder {
 		OrderCtrl oCtr = new OrderCtrl();
 		CustomerCtrl cCtr = new CustomerCtrl();
 		
-		pCtr.createProduct("Test", "Værktøj", 1);
-		pCtr.createProduct("Test2", "Belysning", 200);
-		pCtr.createProduct("Test3", "Køkken", 2);
-		pCtr.createProduct("Bla", "Træ", 2000);
+		pCtr.createProduct("Hammer", "VÃ¦rktÃ¸j", 10);
+		pCtr.createProduct("Lampe", "Belysning", 200);
+		pCtr.createProduct("Vask", "KÃ¸kken", 2);
+		pCtr.createProduct("Nordmandsgran", "TrÃ¦", 2000);
 		
-		cCtr.createCustomer("Hans", "test", "1", "test");
-		cCtr.createCustomer("Jens", "test", "2", "test");
-		
-		PartOrder pOrder1 = new PartOrder(1, pCtr.getProduct(1));
-		PartOrder pOrder2 = new PartOrder(1, pCtr.getProduct(3));
-		
+		cCtr.createCustomer("Hans", "Hansenvej 1", "12345678", "Hans@hansen.dk");
+		cCtr.createCustomer("Jens", "Jensengade 3", "87654321", "Jens@jensen.dk");
 		
 		Customer cus1 = cCtr.getCustomer(1);
+		Customer cus2 = cCtr.getCustomer(2);
+
 		oCtr.createOrder(cus1);
+		oCtr.addPartOrder(1, 4, pCtr.getProduct(4));
 		
-		oCtr.getOrder(1).addPartOrder(pOrder1);
-		oCtr.getOrder(1).addPartOrder(pOrder2);
+		oCtr.isFinished(1);
 		
-		System.out.println(oCtr.getOrder(1).getTotalPrice());
+		System.out.println(cus1.getDiscount());
 		
+		oCtr.createOrder(cus1);
+		oCtr.addPartOrder(2, 4, pCtr.getProduct(4));
 		
+		System.out.println(oCtr.getOrder(2).getTotalPrice());
+
 	}
 
 }
