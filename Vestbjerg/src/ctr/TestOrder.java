@@ -35,6 +35,8 @@ public class TestOrder {
 		oCtr.addPartOrder(2, 4, pCtr.getProduct(4));
 		
 		System.out.println(oCtr.getOrder(2).getTotalPrice());
+		
+		oCtr.findOrderList(cus1);
 
 	}
 

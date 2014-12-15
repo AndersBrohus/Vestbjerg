@@ -1,0 +1,109 @@
+package ui;
+import java.util.Scanner;
+
+import ctr.*;
+import mdl.*;
+
+public class ProductUI {
+	private ProductCtrl pCtr;
+	
+	public ProductUI() {
+		pCtr = new ProductCtrl();
+	}
+	
+	public void start()
+	{
+		productMenu();
+	}
+	
+	public void productMenu() {
+        boolean exit = false;
+        while(!exit) { //that is: while exit is false
+
+            int choise = writeProductMenu(); 
+            if(choise == 1) {
+            	
+            }
+            else if(choise == 2) {
+
+            }
+            else if(choise == 3) {
+
+            }
+            else if(choise == 4) {
+
+            }
+            else if(choise == 5) {
+
+            }
+            else if(choise == 6) {
+
+            }
+            else
+            {exit = true;}
+        }//end else    
+    }//end while
+
+    public int writeProductMenu() { // makes an object keyboard to read input from the screen
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Product Menu ***");
+        System.out.println(" (1) Create Product");
+        System.out.println(" (2) Delete Product");
+        System.out.println(" (3) Get Product");
+        System.out.println(" (4) Find Products");
+        System.out.println(" (5) Update Product");
+        System.out.println(" (6) Print all products");
+        System.out.println(" (7) Back");
+        System.out.print("\n Make your choice: ");
+
+        int choise = keyboard.nextInt();
+        if(choise > 7 || choise == 0)
+        {
+            System.out.println("WTF.. You choose " + choise +" this is not a valid number.......");
+            return writeProductMenu();
+        }
+        else {
+            return choise;
+        }
+    }
+    
+    public String inputProductName()
+    {
+        // makes an object keyboard to read input from the console
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println(" Enter the customers name: ");
+        String proName = keyboard.nextLine();
+        return proName;
+    }
+    
+    public String inputType()
+    {
+        // makes an object keyboard to read input from the console
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println(" Enter the customers address: ");
+        String type = keyboard.nextLine();
+        return type;
+    }
+    
+    public int inputPrice()
+    {
+        boolean ok = false;
+        double price = 0;
+        while(!ok)
+        {
+            // makes an object keyboard to have input from the console
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println(" Enter the customer number :");
+            try{
+            	price = keyboard.nextDouble();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Input must be a number, please try again");
+                String input = keyboard.nextLine();
+            }
+        }//end while
+        return customerNumber;
+    }
+}

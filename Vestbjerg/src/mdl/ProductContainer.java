@@ -24,7 +24,7 @@ public class ProductContainer {
 		productList.add(pro);
 	}
 	
-	public ArrayList<Product> findProduct(String name)
+	/*public ArrayList<Product> findProduct(String name)
 	{
 		ArrayList<Product> pList = new ArrayList<Product>();
 		 for (Product p : productList) 
@@ -41,6 +41,24 @@ public class ProductContainer {
 			 System.out.println(p.getProductNumber() + " - " + p.getName() + " - " + p.getType() + " - " + p.getPrice() + "kr");
 		 }
 		 return pList;
+	}*/
+	
+	public void findProduct(String name)
+	{
+		ArrayList<Product> pList = new ArrayList<Product>();
+		 for (Product p : productList) 
+		 {
+			if(p.getName().contains(name))
+			{
+				pList.add(p);
+			}
+		 }
+
+		 System.out.println("Product Number - Product Name - Type - Price \n");
+		 for(Product p : pList)
+		 {
+			 System.out.println(p.getProductNumber() + " - " + p.getName() + " - " + p.getType() + " - " + p.getPrice() + "kr");
+		 }
 	}
 	
 	public Product getProduct(int productNumber)

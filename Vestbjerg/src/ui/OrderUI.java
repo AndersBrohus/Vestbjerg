@@ -6,9 +6,13 @@ import mdl.*;
 
 public class OrderUI {
 	private OrderCtrl oCtr;
+	private CustomerCtrl cCtr;
+	private ProductCtrl pCtr;
 	
 	public OrderUI() {
 		oCtr = new OrderCtrl();
+		cCtr = new CustomerCtrl();
+		pCtr = new ProductCtrl();
 	}
 	
 	public void start()
@@ -22,19 +26,16 @@ public class OrderUI {
 
             int choise = writeOrderMenu(); 
             if(choise == 1) {
-            	
+            	createOrder();
             }
             else if(choise == 2) {
-
+            	setOrderFinished();
             }
             else if(choise == 3) {
-
+            	findOrderList();
             }
             else if(choise == 4) {
-
-            }
-            else if(choise == 5) {
-
+            	getOrder();
             }
             else
             {exit = true;}
@@ -45,15 +46,14 @@ public class OrderUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("*** Order Menu ***");
         System.out.println(" (1) Create Order");
-        System.out.println(" (2) Get Order");
+        System.out.println(" (2) Is finished");
         System.out.println(" (3) Find Order List");
-        System.out.println(" (4) Add Part Order");
-        System.out.println(" (5) Is finished");
-        System.out.println(" (6) Back");
+        System.out.println(" (4) Get Order");
+        System.out.println(" (5) Back");
         System.out.print("\n Make your choice: ");
 
         int choise = keyboard.nextInt();
-        if(choise > 6 || choise == 0)
+        if(choise > 5 || choise == 0)
         {
             System.out.println("WTF.. You choose " + choise +" this is not a valid number.......");
             return writeOrderMenu();
@@ -61,5 +61,188 @@ public class OrderUI {
         else {
             return choise;
         }
+    }
+    
+    public int writePartOrderMenu()
+    {
+    	Scanner keyboard = new Scanner(System.in);
+        System.out.println("*** Part Order Menu ***");
+        System.out.println(" (1) Add Part Order");
+        System.out.println(" (2) Delete Part Order");
+        System.out.println(" (3) Back");
+        System.out.print("\n Make your choice: ");
+
+        int choise = keyboard.nextInt();
+        if(choise > 3 || choise == 0)
+        {
+            System.out.println("WTF.. You choose " + choise +" this is not a valid number.......");
+            return writePartOrderMenu();
+        }
+        else {
+            return choise;
+        }
+    }
+    
+    public String inputPhone()
+    {
+        // makes an object keyboard to read input from the console
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println(" Enter the customers phone: ");
+        String phone = keyboard.nextLine();
+        return phone;
+    }
+    
+    public String inputProductName()
+    {
+        // makes an object keyboard to read input from the console
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println(" Enter the product name: ");
+        String proName = keyboard.nextLine();
+        return proName;
+    }
+    
+    public int inputOrderNumber()
+    {
+        boolean ok = false;
+        int orderNumber = 0;
+        while(!ok)
+        {
+            // makes an object keyboard to have input from the console
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println(" Enter the order number :");
+            try{
+            	orderNumber = keyboard.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Input must be a number, please try again");
+                String input = keyboard.nextLine();
+            }
+        }//end while
+        return orderNumber;
+    }
+    
+    public int inputAmount()
+    {
+        boolean ok = false;
+        int amount = 0;
+        while(!ok)
+        {
+            // makes an object keyboard to have input from the console
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println(" Enter amount:");
+            try{
+            	amount = keyboard.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Input must be a number, please try again");
+                String input = keyboard.nextLine();
+            }
+        }//end while
+        return amount;
+    }
+    
+    public int inputPartOrderId()
+    {
+        boolean ok = false;
+        int pOrderId = 0;
+        while(!ok)
+        {
+            // makes an object keyboard to have input from the console
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println(" Enter Par tOrder Id:");
+            try{
+            	pOrderId = keyboard.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Input must be a number, please try again");
+                String input = keyboard.nextLine();
+            }
+        }//end while
+        return pOrderId;
+    }
+    
+    public int inputProNumber()
+    {
+        boolean ok = false;
+        int proNumber = 0;
+        while(!ok)
+        {
+            // makes an object keyboard to have input from the console
+            Scanner keyboard = new Scanner(System.in);
+            System.out.println(" Enter product number:");
+            try{
+            	proNumber = keyboard.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Input must be a number, please try again");
+                String input = keyboard.nextLine();
+            }
+        }//end while
+        return proNumber;
+    }
+    
+    public void createOrder()
+    {
+    	String phone = inputPhone();
+    	Customer cus = cCtr.findCustomer(phone);
+    	Order ord = new Order(cus);
+        System.out.println("Order has been created with order number: " + ord.getOrderNumber());
+        boolean exit = false;
+        while(!exit)
+        {
+        	int choise = writePartOrderMenu(); 
+            if(choise == 1) {
+            	pCtr.printProductList();
+            	System.out.println("---------------------");
+            	int amount = inputAmount();
+            	int proNumber = inputProNumber();
+            	Product pro = pCtr.getProduct(proNumber);
+            	ord.addPartOrder(amount, pro);
+            }
+            else if(choise == 2) {
+            	ord.listPartOrder();
+            	System.out.println("---------------------");
+            	int pOrderId = inputPartOrderId();
+            	ord.deletePartOrder(pOrderId);
+            	System.out.println("The part order with the id " + pOrderId + " is now deleted.");
+
+            }
+            else
+            {exit = true;}
+        }
+    }
+    
+    public void setOrderFinished()
+    {
+    	String phone = inputPhone();
+    	Customer cus = cCtr.findCustomer(phone);
+    	oCtr.findOrderList(cus);
+    	System.out.println("---------------------");
+    	int orderNumber = inputOrderNumber();
+    	oCtr.isFinished(orderNumber);
+    }
+    
+    public void findOrderList()
+    {
+    	String phone = inputPhone();
+    	Customer cus = cCtr.findCustomer(phone);
+    	oCtr.findOrderList(cus);
+    }
+    
+    public void getOrder()
+    {
+    	Order ord = oCtr.getOrder(inputOrderNumber());
+    	
+    	System.out.println("---------------------");
+    	ord.listPartOrder();
+    	System.out.println("Total price " + ord.getTotalPrice() + "kr");
     }
 }

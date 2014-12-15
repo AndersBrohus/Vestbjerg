@@ -4,6 +4,7 @@
 <fullyQualifiedTypeName name="ctr.OrderCtrl"/>
 <fullyQualifiedTypeName name="ctr.CustomerCtrl"/>
 <fullyQualifiedTypeName name="mdl.PartOrder"/>
-<fullyQualifiedTypeName name="mdl.Product"/>
 <fullyQualifiedTypeName name="mdl.Order"/>
+<fullyQualifiedTypeName name="mdl.Product"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

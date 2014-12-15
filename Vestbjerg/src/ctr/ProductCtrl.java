@@ -16,10 +16,9 @@ public class ProductCtrl {
 		pCon.createProduct(pro);
 	}
 	
-	public ArrayList<Product> findProduct(String name)
+	public void findProduct(String name)
 	{
-		ArrayList<Product> pro = pCon.findProduct(name);
-		return pro;
+		pCon.findProduct(name);
 	}
 	
 	public Product getProduct(int productNumber)

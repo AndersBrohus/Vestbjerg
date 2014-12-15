@@ -24,15 +24,21 @@ public class OrderCtrl {
 		return ord;
 	}
 	
-	public String findOrderList(Customer cus)
+	public void findOrderList(Customer cus)
 	{
-		return oCon.findOrderList(cus);
+		oCon.findOrderList(cus);
 	}
 	
 	public void addPartOrder(int orderNumber, int amount, Product product)
 	{
 		Order ord = getOrder(orderNumber);
 		ord.addPartOrder(amount, product);
+	}
+	
+	public void deletePartOrder(int orderNumber, int partOrderId)
+	{
+		Order ord = getOrder(orderNumber);
+		ord.deletePartOrder(partOrderId);
 	}
 	
 	public void isFinished(int orderNumber)

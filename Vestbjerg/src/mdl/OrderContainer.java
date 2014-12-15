@@ -43,7 +43,7 @@ public class OrderContainer {
         return ord;
 	}
 	
-	public String findOrderList(Customer cus)
+	/*public String findOrderList(Customer cus)
 	{
 		ArrayList<Order> oList = new ArrayList<Order>();
 		 for (Order o : orderList) 
@@ -63,5 +63,29 @@ public class OrderContainer {
 			 o.listPartOrder();
 		 }
 		 return "";
+	}*/
+	
+	public void findOrderList(Customer cus)
+	{
+		ArrayList<Order> oList = new ArrayList<Order>();
+		 for (Order o : orderList) 
+		 {
+			if(o.getCustomer().equals(cus))
+			{
+				oList.add(o);
+			}
+		 }
+
+		 System.out.println("Order Number - Price \n");
+		 for(Order o : oList)
+		 {
+			 System.out.println(o.getOrderNumber() + " - " + o.getTotalPrice() + "kr");
+			 System.out.println("Order list \n");
+			 System.out.println("Product - Amount \n");
+			 for(PartOrder pOrder : o.getPartOrderList())
+				{
+					System.out.println(pOrder.getProduct().getName() + " - " + pOrder.getAmount() + " - " + pOrder.getID());
+				}
+		 }
 	}
 }

@@ -94,4 +94,10 @@ public class Order {
 		}
 		isFinished = true;
 	}
+	
+	public ArrayList<PartOrder> getPartOrderList()
+	{
+		return partOrderList;
+	}
+
 }
