@@ -1,7 +1,5 @@
 package ctr;
 
-import java.util.ArrayList;
-
 import mdl.*;
 
 public class OrderCtrl {
@@ -12,10 +10,13 @@ public class OrderCtrl {
 		oCon = OrderContainer.getInstance();
 	}
 	
-	public void createOrder(Customer cus)
+	public int createOrder(Customer cus)
 	{
+		int ordNumber;
 		Order ord = new Order(cus);
 		oCon.createOrder(ord);
+		ordNumber = ord.getOrderNumber();
+		return ordNumber;
 	}
 	
 	public Order getOrder(int orderNumber)

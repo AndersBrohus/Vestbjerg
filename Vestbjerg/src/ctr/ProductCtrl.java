@@ -1,5 +1,4 @@
 package ctr;
-import java.util.ArrayList;
 
 import mdl.*;
 

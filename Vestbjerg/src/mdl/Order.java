@@ -2,8 +2,6 @@ package mdl;
 
 import java.util.ArrayList;
 
-import ctr.CustomerCtrl;
-
 public class Order {
 	private static int counter = 1;
 	private int orderNumber;
@@ -61,7 +59,7 @@ public class Order {
 	{
 		for(PartOrder pOrder : partOrderList)
 		{
-			System.out.println(pOrder.getProduct().getName() + " - " + pOrder.getAmount() + " - " + pOrder.getID());
+			System.out.println(pOrder.getProduct().getName() + " - " + pOrder.getAmount());
 		}
 	}
 		

@@ -5,6 +5,10 @@
 <fullyQualifiedTypeName name="ctr.CustomerCtrl"/>
 <fullyQualifiedTypeName name="mdl.PartOrder"/>
 <fullyQualifiedTypeName name="mdl.Order"/>
+<<<<<<< Updated upstream
 <fullyQualifiedTypeName name="mdl.Product"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+=======
+<fullyQualifiedTypeName name="ui.MainMenuUI"/>
+>>>>>>> Stashed changes
 </qualifiedTypeNameHistroy>

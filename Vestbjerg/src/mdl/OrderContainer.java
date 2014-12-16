@@ -75,17 +75,24 @@ public class OrderContainer {
 				oList.add(o);
 			}
 		 }
-
-		 System.out.println("Order Number - Price \n");
-		 for(Order o : oList)
+		 
+		 if(oList.size() > 0)
 		 {
-			 System.out.println(o.getOrderNumber() + " - " + o.getTotalPrice() + "kr");
-			 System.out.println("Order list \n");
-			 System.out.println("Product - Amount \n");
-			 for(PartOrder pOrder : o.getPartOrderList())
-				{
-					System.out.println(pOrder.getProduct().getName() + " - " + pOrder.getAmount() + " - " + pOrder.getID());
-				}
+			 System.out.println("Order Number - Price \n");
+			 for(Order o : oList)
+			 {
+				 System.out.println(o.getOrderNumber() + " - " + o.getTotalPrice() + "kr");
+				 System.out.println("Order list \n");
+				 System.out.println("Product - Amount \n");
+				 for(PartOrder pOrder : o.getPartOrderList())
+					{
+						System.out.println(pOrder.getProduct().getName() + " - " + pOrder.getAmount() + " - " + pOrder.getID());
+					}
+			 }
+		 }
+		 else if(oList.isEmpty())
+		 {
+			 System.out.println("No orders in the system.");
 		 }
 	}
 }

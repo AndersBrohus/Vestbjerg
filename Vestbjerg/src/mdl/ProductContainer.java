@@ -101,9 +101,16 @@ public class ProductContainer {
 	
 	public void printProductList()
 	{
-		for(Product p : productList)
+		if(productList.size() > 0)
 		{
-			System.out.println(p.getProductNumber() + " --- " + p.getName());
+			for(Product p : productList)
+			{
+				System.out.println(p.getProductNumber() + " --- " + p.getName());
+			}
+		}
+		else if(productList.isEmpty())
+		{
+			System.out.println("No products in the system.");
 		}
 			
 	}

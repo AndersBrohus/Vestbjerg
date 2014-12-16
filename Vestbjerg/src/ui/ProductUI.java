@@ -153,7 +153,14 @@ public class ProductUI {
     public void findProduct()
     {
     	String proName = inputProductName();
-    	pCtr.findProduct(proName);
+    	try
+    	{
+        	pCtr.findProduct(proName);
+    	}
+    	catch(Exception e)
+    	{
+            System.out.println("Error! No Products is found."+"\n");
+    	}
     }
     
     public Product getProduct()
@@ -172,7 +179,7 @@ public class ProductUI {
         }
         catch(Exception e)
         {
-            System.out.println("Error! Customer is not registered in system."+"\n");
+            System.out.println("Error! Product is not registered in system."+"\n");
         }        
         return pro;
     }
